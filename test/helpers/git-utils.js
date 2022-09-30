@@ -160,7 +160,6 @@ async function gitDetachedHead(repositoryUrl, head) {
  * @return {String} The HEAD sha of the remote repository.
  */
 async function gitRemoteHead(repositoryUrl, execaOptions) {
-  console.log(execa.sync('git', ['ls-remote', repositoryUrl], execaOptions));
   return (await execa('git', ['ls-remote', repositoryUrl, 'HEAD'], execaOptions)).stdout
     .split('\n')
     .filter((head) => Boolean(head))
